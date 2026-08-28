@@ -4,7 +4,7 @@ import { addTask, completeTask, deleteTask } from "./taskManager.js";
 
 test("adds a task to an empty list", () => {
   const tasks = addTask([], "Complete assignment");
-  assert.equal(tasks.length, 0)
+  assert.equal(tasks.length, 1);
   assert.equal(tasks[0].title, "Complete assignment");
 });
 
@@ -43,14 +43,11 @@ test("deletes the selected task", () => {
   assert.equal(updatedTasks[0].id, 2);
 });
 
-// Intentional failure for assessment evidence
-test("intentional failing test demonstration", () => {
+test("deleting the only task leaves an empty list", () => {
   const tasks = deleteTask(
     [{ id: 1, title: "Task one", completed: false }],
     1
-
-    test("intentional failing test demonstration", () => {
   );
 
-  assert.equal(tasks.length, 1);
+  assert.equal(tasks.length, 0);
 });
